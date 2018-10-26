@@ -1,0 +1,6 @@
+instalar la librerias previamente
+
+1.- primero tenemos que crear la BD
+2.- configurar la conexion de BD con netbeans
+3.-configurar mysql -- en el archivo config pool
+4.- modificar el archivo persistence.xml
