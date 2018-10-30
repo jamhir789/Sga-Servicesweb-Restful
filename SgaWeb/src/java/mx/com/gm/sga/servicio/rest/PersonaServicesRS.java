@@ -82,7 +82,8 @@ public class PersonaServicesRS {
     @Path("{id}")
     public Response eliminarPersonaPorId(@PathParam("id") int id) {
         try {
-            personaService.eliminarPersona(new Persona(id));
+            Persona persona=personaService.encontrarPersonaPorId(new Persona(id));
+            personaService.eliminarPersona(persona);
             return Response.ok().build();
         } catch (Exception e) {
             return Response.status(404).build();

@@ -26,6 +26,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name = "usuario")
@@ -34,6 +38,9 @@ import javax.validation.constraints.Size;
     , @NamedQuery(name = "Usuario.findByIdUsuario", query = "SELECT u FROM Usuario u WHERE u.idUsuario = :idUsuario")
     , @NamedQuery(name = "Usuario.findByUsername", query = "SELECT u FROM Usuario u WHERE u.username = :username")
     , @NamedQuery(name = "Usuario.findByPassword", query = "SELECT u FROM Usuario u WHERE u.password = :password")})
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -55,7 +62,7 @@ public class Usuario implements Serializable {
     @Column(name = "password")
     private String password;
 
-    
+    @XmlTransient
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
     @ManyToOne(cascade = CascadeType.ALL)
     private Persona persona;
@@ -153,5 +160,9 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "Usuario{" + "idUsuario=" + idUsuario + ", username=" + username + ", password=" + password + ", persona=" + persona + '}';
+    }
+
+    public void registrarUsuario(Usuario usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

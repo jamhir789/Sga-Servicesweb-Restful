@@ -32,6 +32,8 @@
         <url-pattern>*.faces</url-pattern>        
         <url-pattern>/faces/*</url-pattern>    
     </servlet-mapping>
+   
+
     <servlet>
         <servlet-name>JerseyWebApplication</servlet-name>
         <servlet-class>
@@ -47,4 +49,8 @@
         <servlet-name>JerseyWebApplication</servlet-name>
         <url-pattern>/webservice/*</url-pattern>
     </servlet-mapping>
+     
+    
+    
+    
 </web-app>
